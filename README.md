@@ -1,4 +1,4 @@
-# Jenkins TLS with aditionals tools 
+# Jenkins TLS with DevTools
 
 The present dockerfile adding to jenkinsci:tls two additionals tools:
 
@@ -13,60 +13,61 @@ The present dockerfile adding to jenkinsci:tls two additionals tools:
 
 **Note: If you need others version of jenkins, please change the Dockerfile or add more version if you wish**
 
-
-## Command to build locally image
+## Build locally
 
 ```bash
 docker build -t jenkins-custom:v1 .
 ```
 
-## Commando to run locally container in port 8080, change if you wish.
+## Run locally
+
+Container port 8080, change if you wish another port.
 
 ```bash
 mkdir jenkins-data
 docker run -u root --name jenkins --rm -d -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home --name jenkins-custom:v1
 ```
 
-## Access to the Web Console (Omit this step if you have jenkins up and runnings previuly)
+## Web Console
 
-1. Password
+1. *Password*
 
 Firstly, you must to get the default password and put in the box requered into the jenkings web console.
 
-```
+```bash
 docker run exec -it jenkins-custom:v1 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-2. Configure Jenkins Server 
+2. *Configure Jenkins Server*
 
   2.1. Open Web Browser and Put the password saved in the previus step.
   2.2. Install Plugins
   2.3. Configure admin user and password.
 
+## Test additional tools
 
-3. Check the plugins are present
-
-* Maven
+- *Maven*
 
 ```
 docker run exec -it jenkins-custom:v1 mvn -version 
 ```
 
-* AWS CLI
+- *AWS CLI*
 
-```
+```bash
 docker run exec -it jenkins-custom:v1 aws --version
 ```
 
-## docker-compose
+### docker-compose
 
 If you wish to run Jenkins with docker-compose please execute the follow command.
 
-```
+```bash
 docker-compose up -d
 ```
 
 ## Autor
 
-Gonzalo Acosta <gonzaloacostapeiro@gmail.com>
+Gonzalo Acosta <br>
+<gonzaloacostapeiro@gmail.com>
 
