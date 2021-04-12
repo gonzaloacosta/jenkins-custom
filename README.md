@@ -29,7 +29,7 @@ docker run -u root --name jenkins --rm -d -p 8080:8080 -p 50000:50000 -v jenkins
 
 ## Access to the Web Console (Omit this step if you have jenkins up and runnings previuly)
 
-- 1. Password
+1. Password
 
 Firstly, you must to get the default password and put in the box requered into the jenkings web console.
 
@@ -37,14 +37,14 @@ Firstly, you must to get the default password and put in the box requered into t
 docker run exec -it jenkins-custom:v1 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-- 2. Configure Jenkins Server 
+2. Configure Jenkins Server 
 
-  - 2.1. Open Web Browser and Put the password saved in the previus step.
-  - 2.2. Install Plugins
-  - 2.3. Configure admin user and password.
+  2.1. Open Web Browser and Put the password saved in the previus step.
+  2.2. Install Plugins
+  2.3. Configure admin user and password.
 
 
-- 3. Check the plugins are present
+3. Check the plugins are present
 
 * Maven
 
