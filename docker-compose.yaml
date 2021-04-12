@@ -1,0 +1,17 @@
+version: '2'
+
+networks:
+  devnet:
+    driver: bridge
+
+services:
+
+  jenkins:
+    image: jenkins-custom:v4
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+    networks:
+      - devnet
+    volumes:
+      - "./jenkins-data:/var/jenkins_home"
